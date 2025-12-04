@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiverADS Deals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Nuevo encabezado con el logo del cliente -->
+    <div id="encabezado">
+    	<a th:href="@{/productosGen}" class="logo">
+        	<img src="imagenes/logo.png" alt="Logo del Cliente">
+    	</a>
+	</div>
+    
+    <form th:action="@{/buscar}" method="get">
+    <input type="text" name="nombre" placeholder="Buscar campaña por nombre">
+    <button type="submit">Buscar</button>
+	</form>
+    
+    <h1 th:text="${titulo}"></h1>
+    <a th:href="@{/formC}">Crear Campaña</a>
+     <a th:href="@{/listarCli}">Ver clientes</a>
+
+    <table>
+        <thead>
+            <tr> 
+                <th> id </th>
+                <th>NOMBRE DE CAMPAÑA</th>
+                <th> DESCRIPCION</th>
+                <th> META DE VENTAS</th>
+                <th> FECHA DE INICIO</th>
+                <th> FECHA DE FIN DE CAMPAÑA</th>
+                <th> SEGMENTO GEOGRAFICO</th>
+                <th> FECHA DE CREACION</th>
+                <th>DISTRITO</th>
+            </tr>   
+        </thead>
+        <tbody>
+            <tr th:each="campaña: ${campañas}">
+                <td><a class="btn btn-primary btn-xs"
+                    th:href="@{/formP/} + ${campaña.id}" th:text="${campaña.id}"></a></td>
+                <td th:text="${campaña.nombre_campaña}"> </td>
+                <td th:text="${campaña.descripcion}"> </td>
+                <td th:text="${campaña.meta_ventas}"> </td>
+                <td th:text="${campaña.fec_inicio}"> </td>
+                <td th:text="${campaña.fec_fin}"> </td>
+                <td th:text="${campaña.segmento_geografico}"> </td>
+                <td th:text="${campaña.fecCre}"> </td>
+                <td th:text="${campaña.dist}"></td>
+                <td><a th:href="@{/formC/} + ${campaña.id}" th:text="'editar'"></a></td>
+                <td><a th:href="@{/eliminar/} + ${campaña.id}" th:text="'eliminar'" onclick="return confirm('¿Estás seguro que deseas eliminar?');"></a></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/formP/{id}(id=${campaña.id})}">Asignar Productos</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" th:href="@{/listarP/{id}(id=${campaña.id})}">Ver Productos</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

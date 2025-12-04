@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Productos</title>
+</head>
+<body>
+    <div id="encabezado">
+        <a th:href="@{/productosGen}" class="logo">
+            <img src="imagenes/logo.png" alt="Logo del Cliente">
+        </a>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <ul class="nav-list">
+                <li><a th:href="@{/listarC}">CAMPAÑAS</a></li>
+                <li><a th:href="@{/listarCli}">CLIENTES</a></li>
+            </ul>
+        </nav>
+
+        <div class="nombre-perfil">
+            <p id="nombrecliente">administrador</p>
+            <a class="perfil"><img src="imagenes/perfil.jpeg" alt="Logo del Perfil"></a> 
+        </div>
+    </div>
+    
+    <div class="administrador">
+        <!-- Tabla para mostrar los productos generales -->
+        <table border="2" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="producto : ${productos}">
+                    <td th:text="${producto.id_producto}"></td>
+                    <td th:text="${producto.nombre}"></td>
+                    <td th:text="${producto.tipo}"></td>
+                    <td th:text="${producto.marca}"></td>
+                    <td th:text="${producto.modelo}"></td>
+                    <td th:text="${producto.precio_venta}"></td>
+                    <td th:text="${producto.cantidad_stock}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

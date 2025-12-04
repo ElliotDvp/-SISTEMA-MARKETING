@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiverADS Deals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Nuevo encabezado con el logo del cliente -->
+
+    
+      <h1 th:text="${titulo}"></h1>
+<a th:href="@{/formP/{campañaId}(campañaId=${campañaId})}">Crear Producto</a>
+
+<!-- Mostrar el nombre de la campaña si está disponible -->
+<h2 th:if="${campañaNombre}" th:text="'Productos de la campaña: ' + ${campañaNombre}"></h2>
+
+  
+
+
+<table>
+	<thead>
+		<tr> 
+			<th>ID</th>
+			<th>Nombre del producto</th>
+			<th>Marca</th>
+			<th> Modelo </th>
+			<th> Tipo </th>
+			<th>Precio de Venta </th>
+			<th>CANTIDAD DE STOCK </th>
+			<th>Precio Viejo </th>
+		</tr>	
+	</thead>
+	<tbody>
+		<tr th:each="producto: ${productos}">
+			<td th:text="${producto.id_producto}"> </td>
+			<td th:text="${producto.nombre}"> </td>
+			<td th:text="${producto.marca}"> </td>
+			<td th:text="${producto.modelo}"> </td>
+			<td th:text="${producto.tipo}"> </td>
+			<td th:text="${producto.precio_venta}"> </td>
+			<td th:text="${producto.cantidad_stock}"> </td>
+			<td th:text="${producto.precio_viejo}"> </td>
+		</tr>
+	</tbody>
+</table>
+		<button onclick="window.location.href='/productosGen';">Ver Productos Generales</button>
+
+</body>
+</html>

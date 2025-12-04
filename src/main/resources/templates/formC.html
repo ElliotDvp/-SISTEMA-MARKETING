@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiverADS Deals</title>
+    <link rel="stylesheet" href="style.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        header {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: #fff; /* Texto de los enlaces en blanco */
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .navbar img {
+            width: 90px;
+        }
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 10px;
+        }
+        .categories button {
+            background-color: white;
+            border: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .categories button:hover {
+            background-color: #f3f3f3;
+        }
+        .categories .selected {
+            background-color: #E60023; /* Rojo para botón seleccionado */
+            color: white;
+        }
+
+        /* Estilos de la lista de productos */
+        .products-grid {
+            display: none;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .products-grid.active {
+            display: flex;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 22%;
+            margin: 15px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card p {
+            margin: 10px 0;
+        }
+
+        .price {
+            color: #E60023; /* Rojo para precios rebajados */
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .discount-badge {
+            background-color: #E60023;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nuevo encabezado con el logo del cliente -->
+
+    
+<h1 th:text="${titulo}"></h1>
+
+	<form th:action="@{/formC}" th:object="${campaña}" method="post">
+		<table>
+			<tr>
+				<td>NOMBRE DE CAMPAÑA</td>
+				<td><input type="text" th:field="*{nombre_campaña}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre_campaña')}"
+					th:errors="*{nombre_campaña}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>DESCRIPCION</td>
+				<td><input type="text" th:field="*{descripcion}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('descripcion')}"
+					th:errors="*{descripcion}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>META DE VENTAS</td>
+				<td><input type="text" th:field="*{meta_ventas}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('meta_ventas')}"
+					th:errors="*{meta_ventas}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>FECHA DE INICIO</td>
+				<td><input type="text" th:field="*{fec_inicio}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('fec_inicio')}"
+					th:errors="*{fec_inicio}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>FECHA DE FIN CAMPAÑA</td>
+				<td><input type="text" th:field="*{fec_fin}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('fec_fin')}"
+					th:errors="*{fec_fin}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>SEGMENTO GEOGRAFICO</td>
+				<td><input type="text" th:field="*{segmento_geografico}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('segmento_geografico')}"
+					th:errors="*{segmento_geografico}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>FECHA DE CREACION</td>
+				<td><input type="text" th:field="*{fecCre}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('fecCre')}"
+					th:errors="*{fecCre}"	></small>
+				</td>
+			</tr>
+			<tr>
+    			<td>DISTRITO</td>
+    			<td><input type="text" th:field="*{dist}" th:errorclass="alert-danger" />
+        			<small class="form-text text-danger" th:if="${#fields.hasErrors('dist')}" th:errors="*{dist}"></small>
+    			</td>
+			</tr>
+			
+			<!-- 
+				<tr>
+				    <td>Correo</td>
+				    <td><input type="text" th:field="*{correo}" /></td>
+				</tr>		
+				<tr> 
+				    <td>Contraseña</td>
+				    <td><input type="text" th:field="*{contra}" /></td>
+				</tr>
+				-->
+				<tr> 
+				    <td><input type="submit" value="Crear Campaña"/></td>
+				</tr>
+			
+		</table>		
+	
+	<input type="hidden"	th:field="*{id}"/>
+	
+	</form>
+
+</body>
+</html>

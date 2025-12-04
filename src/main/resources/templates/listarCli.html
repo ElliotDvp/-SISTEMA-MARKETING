@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- Nuevo encabezado con el logo del cliente -->
+    <div id="encabezado">
+    	<a th:href="@{/productosGen}" class="logo">
+        	<img src="imagenes/logo.png" alt="Logo del Cliente">
+    	</a>
+	</div>
+	
+<h2>Lista de Clientes</h2>
+<table>
+    <tr>
+    	<th>ID </th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Contraseña </th>
+    </tr>
+    <tr th:each="cliente : ${clientes}">
+    	<td th:text="${cliente.id}"> </td>
+        <td th:text="${cliente.nombre}"></td>
+        <td th:text="${cliente.apellido}"></td>
+        <td th:text="${cliente.email}"></td>
+        <td th:text="${cliente.contra}"> </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a Bootstrap -->
+    <link rel="stylesheet" href="style.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <form action="/usuarios/login" method="post">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="contra" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contra" name="contra" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <!-- Muestra el mensaje de error solo si está presente -->
+        <div style="color: red;" th:text="${error}" class="text-center mt-3"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

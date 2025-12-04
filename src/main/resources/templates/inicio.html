@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Tienda Completa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .hero-section .content {
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin: 0 0 20px;
+            color: #ffb84d;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffb84d;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9933;
+        }
+
+        .products-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 18px;
+            color: #ffb84d;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+	<div id="encabezado">
+    	<a th:href="@{/administradordecampañas}" class="logo">
+        	<img src="imagenes/logo.png" alt="Logo del Cliente">
+    	</a>
+	</div>
+<header>
+    
+    <nav>
+        <a href="/formCli">Registro</a>
+    </nav>
+</header>
+
+<!-- Sección de Electrodomésticos -->
+
+<section class="hero-section" style="background-color: #000; color: #fff;">
+    <div class="content">
+        <h2 style="color: #ff9933;">Black Friday de Halloween</h2>
+        <p>¡Regístrate para ver las mejores ofertas en los nuevos productos que llegaron!</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-product-thumbnail-01-en-14sep21?$facebook$" alt="Polo Negro">
+                <h3>Polo Negro</h3>
+                <p>Precios más bajos</p>
+                <div class="price">S/. 24.95</div>
+            </div>
+            <div class="product-card">
+                <img src="https://i.ytimg.com/vi/G2JYAeOhcbQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAffJbQtvTjw4yivAGKa-ULFKAwtA" alt="Polo Blanco">
+                <h3>Polo Blanco</h3>
+                <p>Precios más bajos</p>
+                <div class="price">S/. 24.95</div>
+            </div>
+            <div class="product-card">
+                <img src="https://hmperu.vtexassets.com/arquivos/ids/4546982/Polo-COOLMAX%C2%AE-Loose-Fit---Negro---H-M-PE.jpg?v=638539546724200000" alt="Polo Azul">
+                <h3>Polo Azul</h3>
+                <p>Precios más bajos</p>
+                <div class="price">S/. 24.95</div>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/236x/8e/25/82/8e258247f87ef72e539e47b59416168c.jpg" alt="Polera Oversized Fit">
+                <h3>Polera de algodón Oversized Fit</h3>
+                <p>25% de descuento</p>
+                <div class="price">S/. 75.00 <span style="text-decoration: line-through;">S/. 99.95</span></div>
+            </div>
+        </div>
+        <button class="cta-button" onclick="window.location.href='/formUsu';">¡Regístrate ahora!</button>
+
+    </div>
+</section>
+
+</body>
+</html>
