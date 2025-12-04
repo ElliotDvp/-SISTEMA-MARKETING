@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiverADS Deals</title>
+    <link rel="stylesheet" href="style.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        header {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: #fff; /* Texto de los enlaces en blanco */
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .navbar img {
+            width: 90px;
+        }
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 10px;
+        }
+        .categories button {
+            background-color: white;
+            border: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .categories button:hover {
+            background-color: #f3f3f3;
+        }
+        .categories .selected {
+            background-color: #E60023; /* Rojo para botón seleccionado */
+            color: white;
+        }
+
+        /* Estilos de la lista de productos */
+        .products-grid {
+            display: none;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .products-grid.active {
+            display: flex;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 22%;
+            margin: 15px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card p {
+            margin: 10px 0;
+        }
+
+        .price {
+            color: #E60023; /* Rojo para precios rebajados */
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .discount-badge {
+            background-color: #E60023;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nuevo encabezado con el logo del cliente -->
+    <div id="encabezado">
+    	<a th:href="@{/administradordecampañas}" class="logo">
+
+    	</a>
+	</div>
+	
+ <h1 th:text="'Creando producto para: ' + ${campañaNombre}">Creando producto para: Campaña</h1>   
+<h1 th:text="${titulo}"></h1>
+
+<form th:action="@{/formP}" th:object="${producto}" method="post">
+    <table>
+    	<tr>
+            <td>Nombre del Producto</td>
+            <td><input type="text" th:field="*{nombre}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+					th:errors="*{nombre}"	></small> 
+			</td>
+        </tr>
+        <tr>
+            <td>Marca</td>
+            <td><input type="text" th:field="*{marca}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('marca')}"
+					th:errors="*{marca}"	></small> 
+			</td>
+        </tr>
+       <tr>
+            <td>Modelo</td>
+            <td><input type="text" th:field="*{modelo}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('modelo')}"
+					th:errors="*{modelo}"	></small> 
+			</td>
+        </tr>
+        <tr>
+            <td>Tipo</td>
+            <td><input type="text" th:field="*{tipo}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('tipo')}"
+					th:errors="*{tipo}"	></small>
+			</td>
+        </tr>
+        <tr>
+            <td>Precio Venta</td>
+            <td><input type="text" th:field="*{precio_venta}"  th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('precio_venta')}"
+					th:errors="*{precio_venta}"	></small>
+			</td>
+        </tr>
+        <tr>
+            <td>Cantidad Stock</td>
+            <td><input type="text" th:field="*{cantidad_stock}"  th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad_stock')}"
+					th:errors="*{cantidad_stock}"	></small>
+			</td>
+        </tr>
+        <tr>
+            <td>Precio Viejo</td>
+            <td><input type="text" th:field="*{precio_viejo}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('precio_viejo')}"
+					th:errors="*{precio_viejo}"	></small>
+			</td>
+        </tr>
+        <tr> 
+            <td><input type="submit" value="Crear Producto_Campaña"/></td>
+        </tr>
+    </table>
+    <input type="hidden" th:field="*{campaña.id}" />
+</form>
+
+
+</body>
+</html>

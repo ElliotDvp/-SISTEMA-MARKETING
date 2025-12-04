@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiverADS Deals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Encabezado con logo, igual que en listarC.html -->
+    <div id="encabezado">
+        <a th:href="@{/productosGen}" class="logo">
+            <img src="imagenes/logo.png" alt="Logo del Cliente">
+        </a>
+    </div>
+    
+    <h1>Campaña No Encontrada</h1>
+    
+    <p>No está esa campaña registrada en la lista de campañas.</p>
+    
+    <a th:href="@{/listarC}">Volver al listado de campañas</a>
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+#encabezado {
+    display: flex;
+    justify-content: center; /* Centra el logo */
+    align-items: center; /* Alineación vertical */
+    padding: 20px; /* Espaciado interno */
+    height: 90px; /* Define una altura suficiente para el encabezado */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    position: absolute; /* Permite centrar el logo */
+    left: 50%; /* Mueve el logo al centro */
+    transform: translateX(-50%); /* Ajusta para centrar */
+}
+
+.nombre-perfil {
+    display: flex; /* Utiliza flexbox para alinear horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    margin-left: auto; /* Empuja este grupo a la derecha */
+}
+
+#nombrecliente {
+    text-align: center;
+    width: 200px;
+    height: 20px;
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
+.logo img {
+    max-width: 100%;
+    width:250px; /* Hace que la imagen se ajuste al contenedor */
+}
+
+.perfil img {
+    width: 50px; /* Ancho del logo del perfil */
+    height: 50px; /* Alto del logo del perfil */
+    border-radius: 50%; /* Hace que el logo del perfil sea un círculo */
+    border: 2px solid black; /* Borde negro alrededor del logo del perfil */
+}
+
+/* Estilo de la tabla y su contenedor */
+.administrador {
+    display: flex;
+    justify-content: center;  /* Centra la tabla horizontalmente */
+    align-items: center;      /* Centra verticalmente si lo deseas */
+    margin-top: 30px;
+}
+
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 80%;  /* Ajusta el ancho de la tabla según tus necesidades */
+    max-width: 800px; /* Limita el ancho máximo de la tabla */
+}
+
+table, th, td {
+    border: 1px solid black;  /* Añade bordes */
+    padding: 10px;
+    text-align: center;  /* Centra el texto */
+}
+
+/* Barra de navegación */
+nav {
+    display: inline-block;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-list a:hover {
+    background-color: #0668e1;
+    color: white;
+}

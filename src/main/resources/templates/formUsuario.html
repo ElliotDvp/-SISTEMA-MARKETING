@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    <h2 th:text="${titulo}"></h2>
+    <form th:action="@{/usuarios/form}" th:object="${usuario}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" required />
+        </div>
+        <div>
+            <label>Correo:</label>
+            <input type="email" th:field="*{correo}" required />
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <input type="password" th:field="*{contraseña}" required />
+        </div>
+        <div>
+            <label>Función:</label>
+            <select th:field="*{funcion}" required>
+                <option value="admin">Admin</option>
+                <option value="marketing">Marketing</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" th:text="${titulo}"></button>
+            <a th:href="@{/usuarios/listar}">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

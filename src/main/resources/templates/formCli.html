@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:tn="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 th:text="${titulo}">REGISTRO DE CLIENTE</h1>
+
+	<form th:action="@{/formCli}" th:object="${cliente}" method="post">
+		<table>
+			<tr>
+				<td>NOMBRE</td>
+				<td><input type="text" th:field="*{nombre}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+					th:errors="*{nombre}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>apellido</td>
+				<td><input type="text" th:field="*{apellido}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}"
+					th:errors="*{apellido}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td><input type="text" th:field="*{email}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}"	></small>
+				</td>
+			</tr>
+			<tr>
+				<td>contra</td>
+				<td><input type="text" th:field="*{email}" th:errorclass="alert-danger" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('contra')}"
+					th:errors="*{contra}"	></small>
+				</td>
+			</tr>
+			
+
+				<tr> 
+				    <td><input type="submit" value="Crear Cliente"/></td>
+				</tr>
+			
+		</table>		
+	
+	<input type="hidden"	th:field="*{id}"/>
+	
+	</form>
+
+</body>
+</html>
